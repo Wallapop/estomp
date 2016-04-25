@@ -45,7 +45,7 @@ connect (Host, PortNo, Login, Passcode, Options, RecBuf)  ->
 	{Frame, _} = parse_frame(Response), %% UGLY!
 	case (Frame#frame.command) of
 		"CONNECTED" -> Sock;
-    "ERROR" -> throw(io_lib:format("Error Body: ~p",[Frame#frame.body]));
+    "ERROR" -> throw(lists:concat(["Error Body: ", Frame#frame.body]));
 		_-> throw("Error occured during connection attempt.")
 	end,
 	Sock.
@@ -223,11 +223,7 @@ apply_function_to_messages(F, [H|T], Conn) ->
 % MESSAGE PARSING  . . . get's a little ugly in here . . . would help if I truly grokked Erlang, I suspect.
 % 7/12/09 - yeah, ugly indeed, i need to make this use the same pattern as get_headers_from_raw_src . . . currently scanning header block multiple times and making unnecessary copies
 parse_frame(Message) ->
- 	{Frame, Rest} = get_command(Message),
-  io:format("Command ~p~n",[Frame#frame.command]),
-  io:format("Headers ~p~n",[Frame#frame.headers]),
-  io:format("Body ~p~n",[Frame#frame.body]),
-  {Frame, Rest}.
+ 	get_command(Message).
 
 %% extract type ("MESSAGE", "CONNECT", etc.) from message string . . .
 get_command(Message) ->
