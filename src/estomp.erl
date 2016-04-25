@@ -5,7 +5,7 @@
 %% This was an experiment to get a feel for the Erlang language, and provide simple client access to STOMP suppurting message brokers.
 %% Please feel free to use and re-distribute as you see fit. Comments, improvements and questions welcome.
 
--module (stomp).
+-module (estomp).
 -export ([connect/4]). %% "You sunk my scrabbleship!"
 -export ([connect/5]).
 -export ([connect/6]).

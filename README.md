@@ -1,4 +1,4 @@
-stomp
+estomp
 =====
 
 An OTP client library for STOMP Protocol

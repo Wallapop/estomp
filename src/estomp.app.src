@@ -1,4 +1,4 @@
-{application, stomp,
+{application, estomp,
  [{description, "An OTP client library for STOMP Protocol"},
   {vsn, git},
   {registered, []},
