@@ -1,0 +1,15 @@
+{application, stomp,
+ [{description, "An OTP client library for STOMP Protocol"},
+  {vsn, git},
+  {registered, []},
+  {applications,
+   [kernel,
+    stdlib
+   ]},
+  {env,[]},
+  {modules, []},
+
+  {maintainers, []},
+  {licenses, []},
+  {links, []}
+ ]}.
